@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إهداء خاص | أم طارق حنان</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Arabic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roseGold: '#C98CA7',
+                        blushPink: '#FFF0F5',
+                        deepBerry: '#6B114D',
+                        softPurple: '#E8DFF5',
+                        goldMain: '#D4AF37',
+                        goldBright: '#F9E076',
+                        darkPlum: '#380B2B'
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'sans-serif'],
+                        cairo: ['Cairo', 'sans-serif'],
+                        ruqaa: ['Aref Ruqaa', 'serif'],
+                        amiri: ['Amiri', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styling & Radial Background Glows */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #170714;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(201, 140, 167, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(107, 17, 77, 0.35) 0%, transparent 70%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Particle Stars Effect Canvas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Luxury Glassmorphism Container */
+        .glass-card-luxury {
+            background: rgba(35, 12, 30, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2),
+                inset 0 -1px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Gold Shimmer Typography */
+        .gold-shimmer {
+            background: linear-gradient(120deg, #D4AF37 0%, #FFF3B0 25%, #AA771C 50%, #F9E076 75%, #D4AF37 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Shimmer Border for Islamic Frame */
+        .gold-border-glow {
+            position: relative;
+        }
+        .gold-border-glow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #D4AF37, transparent, #C98CA7, transparent, #D4AF37);
+            border-radius: 1.5rem;
+            z-index: -1;
+            opacity: 0.7;
+            animation: borderRotate 6s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Floating Animation */
+        .animate-float-slow {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        /* Entrance Animations */
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* 3D Button Effects */
+        .btn-3d {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-3d:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* Pulse Glowing Aura */
+        .pulse-aura {
+            animation: pulseAura 3s infinite ease-in-out;
+        }
+        @keyframes pulseAura {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3), 0 0 30px rgba(201, 140, 167, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 0 50px rgba(201, 140, 167, 0.4); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-8 relative">
+
+    <!-- Canvas for Floating Sparkles / Particles Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Background Ornaments -->
+    <div class="fixed top-10 right-10 text-goldMain/20 text-7xl select-none animate-float-slow pointer-events-none font-ruqaa">✦</div>
+    <div class="fixed bottom-12 left-10 text-roseGold/20 text-8xl select-none animate-float-slow pointer-events-none font-ruqaa" style="animation-delay: 2s;">✿</div>
+
+    <!-- Main Card Container -->
+    <main class="w-full max-w-2xl glass-card-luxury rounded-3xl p-6 sm:p-12 text-center relative z-10 fade-in-up my-auto border border-goldMain/30">
+
+        <!-- Islamic Top Motif Symbol -->
+        <div class="mb-6 flex justify-center">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-goldMain/20 via-roseGold/20 to-transparent flex items-center justify-center border border-goldMain/40 pulse-aura">
+                <i class="fa-solid fa-star-and-crescent text-2xl text-goldBright"></i>
+            </div>
+        </div>
+
+        <!-- Header: Receiver Name -->
+        <header class="mb-10">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-roseGold/15 border border-roseGold/30 text-roseGold text-xs sm:text-sm font-semibold tracking-wide mb-3">
+                <i class="fa-solid fa-sparkles text-goldBright ml-1"></i> إهداء راقٍ وخاص
+            </span>
+
+            <h1 class="text-2xl sm:text-3xl font-light text-pink-100 mb-2">إلى الغالية الفاضلة</h1>
+            
+            <div class="py-2">
+                <span class="font-ruqaa text-5xl sm:text-7xl gold-shimmer block leading-tight drop-shadow-lg">
+                    أم طارق حنان
+                </span>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 mt-4">
+                <span class="h-px w-12 bg-gradient-to-l from-goldMain to-transparent"></span>
+                <span class="text-goldBright text-xs">◆ 🌸 ◆</span>
+                <span class="h-px w-12 bg-gradient-to-r from-goldMain to-transparent"></span>
+            </div>
+        </header>
+
+        <!-- Quranic Literature Card (About Quran & Ahl Al-Quran) -->
+        <section class="mb-10 text-right">
+            <div class="gold-border-glow bg-gradient-to-b from-darkPlum/80 to-deepBerry/60 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+                
+                <!-- Background Decorative Pattern Accent -->
+                <div class="absolute -left-10 -bottom-10 text-white/5 text-9xl font-amiri pointer-events-none select-none">ﷻ</div>
+                
+                <div class="flex items-center gap-3 mb-4 border-b border-goldMain/20 pb-3">
+                    <i class="fa-solid fa-book-open-reader text-goldBright text-xl"></i>
+                    <h2 class="font-cairo font-bold text-goldMain text-base sm:text-lg">في رحاب القرآن وأهله</h2>
+                </div>
+
+                <!-- Literary Text -->
+                <p class="font-amiri text-xl sm:text-2xl leading-relaxed text-pink-50 text-center sm:text-right font-medium mb-6">
+                    "القرآنُ ربيعُ القلوب، ونورُ الأرواح، وهدايةُ السالكين.. وطوبى لأهلِ القرآن الذين هم أهلُ الله وخاصّته، يرفلون في نِعَم التدبّر، وتُزهرُ بأخلاقِهم الحياة."
+                </p>
+
+                <div class="bg-black/20 rounded-xl p-4 border border-white/5 text-center sm:text-right flex items-center gap-3">
+                    <div class="w-2 h-8 bg-roseGold rounded-full hidden sm:block"></div>
+                    <p class="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
+                        جعلكم الله من أهل القرآن الذين هم أهله وخاصته، ورفع قدركم به في الدنيا والآخرة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sender Gift Card Section -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-r from-roseGold/20 via-purple-900/30 to-roseGold/20 border border-roseGold/40 rounded-2xl p-6 relative backdrop-blur-md">
+                
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4 text-right">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-goldMain to-amber-600 flex items-center justify-center text-darkPlum text-xl shadow-lg shrink-0">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-roseGold block font-medium">بطاقة إهداء مفعمة بالمحبة:</span>
+                            <h3 class="font-cairo font-bold text-lg sm:text-xl text-white">من الصديقة القرآنية</h3>
+                        </div>
+                    </div>
+
+                    <div class="bg-goldMain/10 border border-goldMain/40 px-5 py-2.5 rounded-xl">
+                        <span class="font-ruqaa text-2xl text-goldBright block">مريم البلوشي</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Buttons -->
+        <section class="space-y-4">
+            <h3 class="text-xs font-semibold text-gray-400 mb-4 tracking-widest uppercase">
+                ✦ قنوات التواصل ✦
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" 
+                   class="btn-3d flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-cairo font-bold py-4 px-6 rounded-2xl shadow-lg shadow-emerald-900/30 border border-emerald-400/30 group">
+                    <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm">التواصل عبر واتساب</span>
+                </a>
+
+                <!-- Snapchat -->
+                <a href="https://snapchat.com/" target="_blank" rel="noopener noreferrer" 
+                   class="btn-3d flex items-center justify-center gap-3 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-cairo font-extrabold py-4 px-6 rounded-2xl shadow-lg shadow-amber-500/20 border border-yellow-200/40 group">
+                    <i class="fa-brands fa-snapchat text-2xl group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm">التواصل عبر سناب شات</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Interactive Blessing Trigger -->
+        <div class="mt-10 pt-6 border-t border-white/10">
+            <button onclick="openModal()" class="group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-medium rounded-full bg-gradient-to-br from-goldMain via-roseGold to-deepBerry group-hover:from-goldMain group-hover:to-roseGold text-white focus:outline-none">
+                <span class="relative px-6 py-2.5 transition-all ease-in duration-75 bg-darkPlum rounded-full group-hover:bg-opacity-0 flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-goldBright"></i>
+                    <span>اضغطي لقراءة دعاء أختك في الله</span>
+                </span>
+            </button>
+        </div>
+
+        <!-- Footer / End Note inside container or right after -->
+        <footer class="mt-10 pt-6 border-t border-white/10 text-center text-xs text-gray-400">
+            <p class="font-cairo tracking-wide">مصمم بكل حب وإتقان لـ <span class="text-roseGold font-semibold">أم طارق حنان</span> 🌸</p>
+        </footer>
+
+    </main>
+
+    <!-- Custom Animated Modal (No Browser Alerts) -->
+    <div id="blessingModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <div id="modalBox" class="glass-card-luxury border-2 border-goldMain rounded-3xl p-6 sm:p-10 max-w-md w-full text-center transform scale-90 transition-all duration-500 relative">
+            
+            <button onclick="closeModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-goldMain/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-goldMain/50 text-3xl text-goldBright">
+                🤲
+            </div>
+
+            <h3 class="font-cairo font-bold text-xl text-goldBright mb-3">دعاء صادق من القلب</h3>
+
+            <p class="font-amiri text-lg text-pink-100 leading-loose mb-6 bg-white/5 p-4 rounded-xl border border-white/10">
+                "اللهمَّ أسعد قلبَكِ، ونوّر دربَكِ، واجعل القرآنَ العظيم ربيعَ قلبكِ، ونورَ صدركِ، وجلاءَ حزنكِ، وذهابَ همّكِ، واجمعنا بكِ في الفردوس الأعلى من الجنة."
+            </p>
+
+            <button onclick="closeModal()" class="w-full bg-gradient-to-r from-goldMain to-amber-600 hover:from-goldBright hover:to-goldMain text-darkPlum font-cairo font-bold py-3 rounded-xl shadow-lg transition-all">
+                آمين يا رب العالمين
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactive Features & Particles Canvas -->
+    <script>
+        // Modal Control Functions
+        function openModal() {
+            const modal = document.getElementById('blessingModal');
+            const modalBox = document.getElementById('modalBox');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-90');
+            modalBox.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('blessingModal');
+            const modalBox = document.getElementById('modalBox');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-90');
+        }
+
+        // Particle Canvas Logic
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedY = Math.random() * 0.4 - 0.2;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.opacity = Math.random() * 0.6 + 0.2;
+                this.fadeSpeed = Math.random() * 0.008 + 0.002;
+                this.color = Math.random() > 0.5 ? '#D4AF37' : '#C98CA7';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                this.opacity += this.fadeSpeed;
+                if (this.opacity >= 0.8 || this.opacity <= 0.1) {
+                    this.fadeSpeed = -this.fadeSpeed;
+                }
+
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = Math.max(0, this.opacity);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.floor((canvas.width * canvas.height) / 12000);
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.onload = function() {
+            initParticles();
+            animateParticles();
+        };
+    </script>
+</body>
+</html>
